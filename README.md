@@ -3,4 +3,8 @@ Painting Tool made with VanillaJS
 
 > HTML + CSS + VanillaJS
 
-Built based on a course of Nomad Coders
+
+![Paint Tool](https://haileykr.github.io/paintJS)
+
+
+Built as an attempt to experience more of the Canvas API, based on a course of Nomad Coders
