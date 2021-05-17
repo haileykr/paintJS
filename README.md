@@ -7,4 +7,8 @@ Painting Tool made with VanillaJS
 [Paint Tool](https://haileykr.github.io/paintJS)
 
 
-Built as an attempt to experience more of the Canvas API, based on a course of Nomad Coders
+* DOODLE with your choices of color and brush size!!
+* SAVE your masterpiece to your local machine once you are done doodling!
+
+
+Built as an attempt to experience more of the Canvas API, based on a course of Nomad Coders + Additional Improvemnets
