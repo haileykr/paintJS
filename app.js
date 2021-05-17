@@ -2,11 +2,15 @@ const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
 const range = document.getElementById("jsRange");
 const colors = document.getElementsByClassName("jsColor");
+const colorPicker = document.getElementById("colorPicker");
 const buttonMode = document.getElementById("jsMode");
 const buttonSave = document.getElementById("jsSave");
+const current = document.getElementById("currentColor");
+const eraser = document.getElementById("eraser");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 500;
+let bgColor = '#fff';
 
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
@@ -31,7 +35,6 @@ function startPainting() {
 
 function onMouseMove(event) {
   //console.log(event);
-
   const x = event.offsetX;
   const y = event.offsetY;
   //console.log(x, y);
@@ -48,17 +51,25 @@ function changeColor(event) {
   //console.log(event);
   ctx.strokeStyle = event.target.style.backgroundColor;
   ctx.fillStyle = event.target.style.backgroundColor;
+
+  current.style.backgroundColor = event.target.style.backgroundColor;
 }
 
+
+
 function changeRange(event) {
-  //console.log(event);
   ctx.lineWidth = event.target.value;
+}
+
+function onColorPickerChange(event) {
+  ctx.strokeStyle = event.target.value;
+  ctx.fillStyle = event.target.value;
 }
 
 function buttonModeChange() {
   if (isFilling) {
     isFilling = false;
-    buttonMode.innerText = "FILL";
+    buttonMode.innerText =  "FILL BG";
   } else {
     isFilling = true;
     buttonMode.innerText = "PAINT";
@@ -68,7 +79,12 @@ function buttonModeChange() {
 function onMouseClick() {
   if (isFilling) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    bgColor = ctx.fillStyle;
   }
+}
+
+function onEraserSelect() {
+  ctx.strokeStyle = bgColor;
 }
 
 function onClickCM(event) {
@@ -92,6 +108,10 @@ if (canvas) {
   canvas.addEventListener("click", onMouseClick);
   canvas.addEventListener("contextmenu", onClickCM);
 }
+
+eraser.addEventListener("click", onEraserSelect);
+
+colorPicker.addEventListener("click", onColorPickerChange);
 
 Array.from(colors).forEach((color) =>
   color.addEventListener("click", changeColor)

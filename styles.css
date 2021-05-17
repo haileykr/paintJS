@@ -33,6 +33,24 @@ h1{
     align-items: center;
 }
 
+#currentColor {
+    
+    margin-left: 1rem;
+    width: 120px;
+    height: 100%;
+    text-align: center;
+    border: none;
+
+    display: inline-block;
+    color: rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+
+    border-radius: 5px;
+    padding: 5px;
+}
+
 .controls .controls__btns{
     margin-bottom: 15px;
 }
@@ -71,6 +89,30 @@ h1{
     cursor: pointer;
 }
 
+
+.controls__colors #colorPicker {
+    border: none;
+}
+#colorPickerText{
+    color: rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight:800;
+    position: relative;
+    left: -46px;
+    bottom:16px;
+}
+
 .controls .controls__range{
     margin-bottom:20px;
+}
+
+#eraser{
+    display: flex;
+    align-items:center;
+    color: rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+    justify-content:center;
 }
