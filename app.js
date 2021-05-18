@@ -10,7 +10,7 @@ const eraser = document.getElementById("eraser");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 500;
-let bgColor = '#fff';
+let bgColor = "#fff";
 
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
@@ -48,14 +48,11 @@ function onMouseMove(event) {
 }
 
 function changeColor(event) {
-  //console.log(event);
   ctx.strokeStyle = event.target.style.backgroundColor;
   ctx.fillStyle = event.target.style.backgroundColor;
 
   current.style.backgroundColor = event.target.style.backgroundColor;
 }
-
-
 
 function changeRange(event) {
   ctx.lineWidth = event.target.value;
@@ -64,12 +61,14 @@ function changeRange(event) {
 function onColorPickerChange(event) {
   ctx.strokeStyle = event.target.value;
   ctx.fillStyle = event.target.value;
+
+  current.style.backgroundColor = event.target.value;
 }
 
 function buttonModeChange() {
   if (isFilling) {
     isFilling = false;
-    buttonMode.innerText =  "FILL BG";
+    buttonMode.innerText = "FILL BG";
   } else {
     isFilling = true;
     buttonMode.innerText = "PAINT";
@@ -111,7 +110,7 @@ if (canvas) {
 
 eraser.addEventListener("click", onEraserSelect);
 
-colorPicker.addEventListener("click", onColorPickerChange);
+colorPicker.addEventListener("change", onColorPickerChange);
 
 Array.from(colors).forEach((color) =>
   color.addEventListener("click", changeColor)
