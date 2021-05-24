@@ -101,9 +101,13 @@ function onClickSave() {
 
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
+  canvas.addEventListener("touchmove",  onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
+  canvas.addEventListener("touchstart", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
+  canvas.addEventListener("touchend", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
+  canvas.addEventListener("touchcancel", stopPainting);
   canvas.addEventListener("click", onMouseClick);
   canvas.addEventListener("contextmenu", onClickCM);
 }
